@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>modal的使用</title>
+
+<script src="../bootstrap-3.3.5/dist/js/jquery-2.0.3.min.js" type="text/javascript" ></script>
+<script src="../bootstrap-3.3.5/dist/js/bootstrap.js" type="text/javascript" ></script>
+
+<link href="../bootstrap-3.3.5/dist/css/bootstrap.css" rel="stylesheet" />
+
+<script type="text/javascript">
+	$(function(){
+		$("#backdrop").modal({
+			backdrop:false,//false 不显示背景div，true显示背景div，static单击背景div不关闭背景
+			show:false,
+			remote:"remote.html"
+			
+		});
+		
+		$("#modal_toggle").modal({
+			backdrop:false,
+			show:false,
+		});
+	});
+	
+
+</script>
+
+
+</head>
+<body>
+<div class="container"  style="margin-top: 30px;">
+	
+	<div class="row"  style="margin-top: 30px">
+		<div class="col-sm-6">
+			<button class="btn btn-default btn-primary"  data-toggle="modal" data-target="#backdrop" >modal背景div</button>
+			
+			<div class="modal fade "  id="backdrop">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" >&times;</button>
+							<h4 class="modal-title">modal 标题</h4>
+						</div>
+						<div class="modal-body">
+							弹窗的内容&hellip;&hellip;
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary">保存</button>
+							<span data-dismiss="modal">关闭</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>		
+
+	<div class="row"  style="margin-top: 30px">
+		<div class="col-sm-6">
+			<a id="btn_toggle" class="btn btn-default btn-primary" >toggle</a>
+			
+			<div class="modal fade "  id="modal_toggle">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" >&times;</button>
+							<h4 class="modal-title">remote modal 标题</h4>
+						</div>
+						<div class="modal-body">
+							初始化弹窗的内容&hellip;&hellip;
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary">保存</button>
+							<span data-dismiss="modal">关闭</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+			
+</div>
+<script type="text/javascript">
+$("#btn_toggle").click(function(){
+
+	$("#modal_toggle").modal('toggle');
+	
+});
+</script>
+</body>
+</html>
