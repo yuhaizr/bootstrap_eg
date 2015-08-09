@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>modal的使用</title>
+
+<script src="../bootstrap-3.3.5/dist/js/jquery-2.0.3.min.js" type="text/javascript" ></script>
+<script src="../bootstrap-3.3.5/dist/js/bootstrap.js" type="text/javascript" ></script>
+
+<link href="../bootstrap-3.3.5/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+</head>
+<body>
+<div class="container"  style="margin-top: 30px;">
+	<!-- 
+		1、 data-toggle 的值必须设置为modal 
+		2、data-target 可以设置需要弹出的弹窗，可以使用CSS选择器进行定位
+		3、对.modal 元素添加 .fade 可以实现淡入淡出的效果
+	 -->
+	<div class="row" style="margin-top: 30px">
+		<div class="col-sm-6">
+			<button class="btn btn-default btn-primary" data-toggle="modal" data-target="#base">点我触发最基本的modal</button>
+			<div class="modal fade " id="base">
+				最基本的modal
+			</div>
+		</div>	
+	</div>
+	<!-- 
+		4、data-backdrop 的使用   
+				  当data-backdrop="true"显示div的背景，当单击div背景时可以关闭弹窗       
+				  当data-backdrop="false"
+		5、&times;  代表的是 x 号
+		6、&hellip;  代表省略号...
+		7、data-dismiss="modal"   添加该属性的时候，单击该属性可以关闭弹窗
+		8、data-keyboard   当为true时 按ESC键时关闭弹出窗，当为false时则不关闭（测试没有成功）  
+		9、 data-show  初始化的时候是否显示（测试没有成功）	  
+	 -->		
+	<div class="row"  style="margin-top: 30px">
+		<div class="col-sm-6">
+			<button class="btn btn-default btn-primary" data-backdrop="false" data-toggle="modal" data-target="#backdrop" data-keyboard="true" >modal背景div</button>
+			
+			<div class="modal fade "  id="backdrop">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" >&times;</button>
+							<h4 class="modal-title">modal 标题</h4>
+						</div>
+						<div class="modal-body">
+							弹窗的内容&hellip;&hellip;
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary">保存</button>
+							<span data-dismiss="modal">关闭</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>		
+	<!--
+		10、当href 不以 # 开头的时候 则表示一个URL地址，弹窗会先加载其内容，替代原来的modal-content样式的div元素
+			当设置href地址的时候，data-target 则必须填写指定id
+	  -->
+	<div class="row"  style="margin-top: 30px">
+		<div class="col-sm-6">
+			<a class="btn btn-default btn-primary"  data-toggle="modal" href="remote.html" data-target="#remote_modal"  >modal远程加载</a>
+			
+			<div class="modal fade "  id="remote_modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" >&times;</button>
+							<h4 class="modal-title">remote modal 标题</h4>
+						</div>
+						<div class="modal-body">
+							初始化弹窗的内容&hellip;&hellip;
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary">保存</button>
+							<span data-dismiss="modal">关闭</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+			
+</div>
+</body>
+</html>
